@@ -1,10 +1,9 @@
 package com.example.walrus.ressource;
+import com.example.walrus.entity.Answer;
 import com.example.walrus.service.AnswerService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController("/answer")
 public class AnswerResource {
@@ -16,13 +15,15 @@ public class AnswerResource {
     }
 
     @RequestMapping()
-    public List<String> get() {
+    public List<Answer> get() {
         return answerService.getAll();
     }
 
+    /*
     @RequestMapping(method = POST)
     public void create(@RequestBody String answer) {
         answerService.create(answer);
     }
+    */
 
 }

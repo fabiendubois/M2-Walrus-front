@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 @Repository
 public class AnswerRepository {
 
+    /*
     private static final HashMap<Integer,String> DATABASE = new HashMap<>();;
 
     public AnswerRepository() {
@@ -28,4 +29,7 @@ public class AnswerRepository {
     public void create(String answer) {
         DATABASE.put(DATABASE.keySet().size()+1, answer);
     }
+    */
+
+
 }
