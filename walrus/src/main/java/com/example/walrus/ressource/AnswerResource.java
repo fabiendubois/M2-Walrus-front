@@ -38,6 +38,4 @@ public class AnswerResource {
         answerService.add(answer);
     }
 
-
-
 }
