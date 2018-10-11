@@ -5,6 +5,3 @@ addons:
   mariadb: '10.0'
 before_install:
 - mysql -e 'CREATE DATABASE walrus;'
-- sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('password') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-- sudo mysql_upgrade -u root -p password
-- sudo service mysql restart
