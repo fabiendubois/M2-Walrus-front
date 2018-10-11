@@ -1,13 +1,10 @@
 package com.example.walrus.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /*
-    DROP TABLE IF EXISTS Answer;
-    CREATE TABLE Answer (
+    DROP TABLE IF EXISTS answer;
+    CREATE TABLE answer (
         -- PRIMARY KEY --
         id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         -- OTHER --
@@ -16,18 +13,20 @@ import javax.persistence.Id;
  */
 
 @Entity
+@Table(name = "answer")
 public class Answer {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer id;
 
+    @Column(name = "name")
     private String name;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

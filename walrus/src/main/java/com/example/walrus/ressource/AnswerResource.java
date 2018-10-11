@@ -4,26 +4,33 @@ import com.example.walrus.service.AnswerService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
-@RestController("/answer")
+@RestController()
+@RequestMapping("/api")
 public class AnswerResource {
 
-    private final AnswerService answerService;
+    private AnswerService answerService;
 
     public AnswerResource(AnswerService answerService) {
         this.answerService = answerService;
     }
 
-    @RequestMapping()
-    public List<Answer> get() {
-        return answerService.getAll();
+    @GetMapping("/answers")
+    public List<Answer> findAll() {
+        return answerService.findAll();
     }
 
-    /*
-    @RequestMapping(method = POST)
-    public void create(@RequestBody String answer) {
-        answerService.create(answer);
+    @GetMapping("/answers/{id}")
+    public Optional<Answer> findById(@PathVariable Integer id) {
+        return answerService.findById(id);
     }
-    */
+
+    @PostMapping("/answers")
+    public void create(@RequestBody Answer answer) {
+        answerService.add(answer);
+    }
+
+
 
 }
