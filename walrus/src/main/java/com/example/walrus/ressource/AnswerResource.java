@@ -24,8 +24,13 @@ public class AnswerResource {
 
     @GetMapping("/answers/{id}")
     public Optional<Answer> findById(@PathVariable Integer id) {
-        return answerService.findById(id);
-        // Optional<Answer> answer = answerService.findById(id).orElseThrow(() -> new AnswerException(id));
+        Optional<Answer> answer = answerService.findById(id);
+
+        if(!answer.isPresent()) {
+            throw new AnswerException(id);
+        }
+
+        return  answer;
     }
 
     @PostMapping("/answers")
