@@ -1,15 +1,10 @@
-before_script: cd walrus
+before_script: 
+- cd walrus
+- echo "USE mysql;\nUPDATE user SET password=PASSWORD('password') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
 language: java
 jdk: oraclejdk8
 addons:
-  apt:
-    sources:
-      - mysql-5.7-trusty
-    packages:
-      - mysql-server
-      - mysql-client
+  mariadb: '10.0'
+
 before_install:
-- sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('password') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-- sudo mysql_upgrade -u root -p password
-- sudo service mysql restart
-- sudo mysql -e 'CREATE DATABASE walrus;'
+- mysql -e 'CREATE DATABASE walrus;'
