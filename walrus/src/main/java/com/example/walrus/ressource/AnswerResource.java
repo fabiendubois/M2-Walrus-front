@@ -1,5 +1,6 @@
 package com.example.walrus.ressource;
 import com.example.walrus.entity.Answer;
+import com.example.walrus.exception.AnswerException;
 import com.example.walrus.service.AnswerService;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +25,7 @@ public class AnswerResource {
     @GetMapping("/answers/{id}")
     public Optional<Answer> findById(@PathVariable Integer id) {
         return answerService.findById(id);
+        // Optional<Answer> answer = answerService.findById(id).orElseThrow(() -> new AnswerException(id));
     }
 
     @PostMapping("/answers")
