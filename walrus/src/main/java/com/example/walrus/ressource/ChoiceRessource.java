@@ -1,8 +1,8 @@
 package com.example.walrus.ressource;
 
 import com.example.walrus.entity.Choice;
-import com.example.walrus.entity.Question;
 import com.example.walrus.service.ChoiceService;
+import com.example.walrus.service.QuestionService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +14,8 @@ public class ChoiceRessource {
 
     private ChoiceService choiceService;
 
-    public ChoiceRessource(ChoiceService choiceService) {
+
+    public ChoiceRessource(ChoiceService choiceService, QuestionService questionService) {
         this.choiceService = choiceService;
     }
 
@@ -29,10 +30,10 @@ public class ChoiceRessource {
         return  choice;
     }
 
-    @PostMapping("/choices")
-    public void create(@RequestBody Choice choice) {
-        choiceService.add(choice);
+    @PostMapping("/questions/{id}/choices")
+    public Optional<Choice> create(@PathVariable Integer id, @RequestBody Choice choice) {
+        return choiceService.add(id, choice);
+                // .orElseThrow(()->new NotFo);
     }
-
 
 }

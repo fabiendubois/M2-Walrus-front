@@ -1,7 +1,10 @@
 package com.example.walrus.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "choice")
@@ -13,10 +16,10 @@ public class Choice {
     @Column(name = "name")
     private String name;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_question")
     private Question question;
-
 
     @OneToMany(mappedBy = "choice", cascade = CascadeType.ALL)
     private List<Answer> answers;

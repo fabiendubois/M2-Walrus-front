@@ -37,5 +37,4 @@ public class AnswerResource {
     public void create(@RequestBody Answer answer) {
         answerService.add(answer);
     }
-
 }
