@@ -1,4 +1,4 @@
-package com.example.walrus.ressource;
+package com.example.walrus.controller;
 import com.example.walrus.entity.Answer;
 import com.example.walrus.exception.AnswerException;
 import com.example.walrus.service.AnswerService;
@@ -9,11 +9,11 @@ import java.util.Optional;
 
 @RestController()
 @RequestMapping("/api")
-public class AnswerResource {
+public class AnswerController {
 
     private AnswerService answerService;
 
-    public AnswerResource(AnswerService answerService) {
+    public AnswerController(AnswerService answerService) {
         this.answerService = answerService;
     }
 
@@ -25,16 +25,14 @@ public class AnswerResource {
     @GetMapping("/answers/{id}")
     public Optional<Answer> findById(@PathVariable Integer id) {
         Optional<Answer> answer = answerService.findById(id);
-
         if(!answer.isPresent()) {
             throw new AnswerException(id);
         }
-
         return  answer;
     }
 
-    @PostMapping("/answers")
-    public void create(@RequestBody Answer answer) {
-        answerService.add(answer);
+    @PostMapping("/questions/{id_question}/choices/{id_choice}/answers")
+    public Optional<Answer> create(@PathVariable Integer id_question, @PathVariable Integer id_choice) {
+        return answerService.add(id_question, id_choice);
     }
 }

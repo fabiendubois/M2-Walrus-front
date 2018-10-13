@@ -1,6 +1,7 @@
 package com.example.walrus.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
@@ -11,6 +12,7 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @NotBlank
     @Column(name = "name")
     private String name;
 

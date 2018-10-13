@@ -1,5 +1,7 @@
 package com.example.walrus.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,9 +11,19 @@ public class Answer {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_choice")
     private Choice choice;
+
+    /*
+    public Answer(Choice choice) {
+        this.choice = choice;
+    }*/
+
+    public Answer() {
+    }
+
 
     public Integer getId() {
         return id;

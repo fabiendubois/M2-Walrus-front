@@ -3,6 +3,7 @@ package com.example.walrus.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ public class Choice {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
+    @NotBlank
     @Column(name = "name")
     private String name;
 

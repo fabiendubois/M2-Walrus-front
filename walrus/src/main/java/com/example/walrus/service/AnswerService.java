@@ -2,6 +2,7 @@ package com.example.walrus.service;
 
 import com.example.walrus.entity.Answer;
 import com.example.walrus.repository.AnswerRepository;
+import com.example.walrus.repository.ChoiceRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +12,11 @@ import java.util.Optional;
 public class AnswerService {
 
     private AnswerRepository answerRepository;
+    private ChoiceRepository choiceRepository;
 
-    public AnswerService(AnswerRepository answerRepository) {
+    public AnswerService(AnswerRepository answerRepository, ChoiceRepository choiceRepository) {
         this.answerRepository = answerRepository;
+        this.choiceRepository = choiceRepository;
     }
 
     public List<Answer> findAll() {
@@ -24,7 +27,12 @@ public class AnswerService {
         return answerRepository.findById(id);
     }
 
-    public void add(Answer answer) {
-        answerRepository.save(answer);
+    public Optional<Answer> add(Integer id_question, Integer id_choice) {
+
+        return choiceRepository.findById(id_choice).map(choice -> {
+            Answer answer = new Answer();
+            answer.setChoice(choice);
+            return answerRepository.save(answer);
+        });
     }
 }

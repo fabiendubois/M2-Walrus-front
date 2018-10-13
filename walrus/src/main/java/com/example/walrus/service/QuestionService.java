@@ -9,6 +9,7 @@ import java.util.Optional;
 
 @Service
 public class QuestionService {
+
     private QuestionRepository questionRepository;
 
     public QuestionService(QuestionRepository questionRepository) {
@@ -19,11 +20,19 @@ public class QuestionService {
         return questionRepository.findAll();
     }
 
-    public Optional<Question> findById(Integer id) {
-        return questionRepository.findById(id);
+    public Optional<Question> findById(Integer id_question) {
+        return questionRepository.findById(id_question);
     }
 
-    public void add(Question question) {
-        questionRepository.save(question);
+    public Question add(Question question) {
+        return questionRepository.save(question);
+    }
+
+    public Optional<?> deleteById(Integer id_question) {
+        return questionRepository.findById(id_question)
+                .map(question -> {
+                    questionRepository.delete(question);
+                    return question;
+                });
     }
 }

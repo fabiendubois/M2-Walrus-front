@@ -1,21 +1,23 @@
-package com.example.walrus.ressource;
+package com.example.walrus.controller;
 
 import com.example.walrus.entity.Choice;
+import com.example.walrus.exception.ChoiceException;
 import com.example.walrus.service.ChoiceService;
 import com.example.walrus.service.QuestionService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
 @RestController()
 @RequestMapping("/api")
-public class ChoiceRessource {
+public class ChoiceController {
 
     private ChoiceService choiceService;
 
-
-    public ChoiceRessource(ChoiceService choiceService, QuestionService questionService) {
+    public ChoiceController(ChoiceService choiceService, QuestionService questionService) {
         this.choiceService = choiceService;
     }
 
@@ -27,13 +29,20 @@ public class ChoiceRessource {
     @GetMapping("/choices/{id}")
     public Optional<Choice> findById(@PathVariable Integer id) {
         Optional<Choice> choice = choiceService.findById(id);
+        if(!choice.isPresent()) {
+            throw new ChoiceException(id);
+        }
         return  choice;
     }
 
     @PostMapping("/questions/{id}/choices")
-    public Optional<Choice> create(@PathVariable Integer id, @RequestBody Choice choice) {
+    public Optional<Choice> create(@PathVariable Integer id, @Valid @RequestBody Choice choice) {
         return choiceService.add(id, choice);
-                // .orElseThrow(()->new NotFo);
     }
 
+    @DeleteMapping("/choices/{id}")
+    public ResponseEntity<?>  deleteById(@PathVariable Integer id_choice) {
+        return this.choiceService.deleteById(id_choice)
+                .map(question -> ResponseEntity.ok().build()).orElseThrow(() -> new ChoiceException(id_choice));
+    }
 }

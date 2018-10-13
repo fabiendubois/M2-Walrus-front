@@ -24,8 +24,8 @@ public class ChoiceService {
         return choiceRepository.findAll();
     }
 
-    public Optional<Choice> findById(Integer id) {
-        return choiceRepository.findById(id);
+    public Optional<Choice> findById(Integer id_choice) {
+        return choiceRepository.findById(id_choice);
     }
 
     public Optional<Choice> add(Integer id_question, Choice choice) {
@@ -33,5 +33,13 @@ public class ChoiceService {
             choice.setQuestion(question);
             return choiceRepository.save(choice);
         });
+    }
+
+    public Optional<?> deleteById(Integer id_choice) {
+        return choiceRepository.findById(id_choice)
+                .map(choice -> {
+                    choiceRepository.delete(choice);
+                    return choice;
+                });
     }
 }
