@@ -1,7 +1,14 @@
 package com.example.walrus.controller;
 import com.example.walrus.entity.Answer;
+import com.example.walrus.entity.Choice;
+import com.example.walrus.entity.Question;
 import com.example.walrus.exception.AnswerException;
+import com.example.walrus.exception.ChoiceException;
+import com.example.walrus.exception.QuestionException;
 import com.example.walrus.service.AnswerService;
+import com.example.walrus.service.ChoiceService;
+import com.example.walrus.service.QuestionService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,27 +19,54 @@ import java.util.Optional;
 public class AnswerController {
 
     private AnswerService answerService;
+    private ChoiceService choiceService;
+    private QuestionService questionService;
 
-    public AnswerController(AnswerService answerService) {
+
+    public AnswerController(AnswerService answerService, ChoiceService choiceService, QuestionService questionService) {
         this.answerService = answerService;
-    }
-
-    @GetMapping("/answers")
-    public List<Answer> findAll() {
-        return answerService.findAll();
-    }
-
-    @GetMapping("/answers/{id}")
-    public Optional<Answer> findById(@PathVariable Integer id) {
-        Optional<Answer> answer = answerService.findById(id);
-        if(!answer.isPresent()) {
-            throw new AnswerException(id);
-        }
-        return  answer;
+        this.choiceService = choiceService;
+        this.questionService = questionService;
     }
 
     @PostMapping("/questions/{id_question}/choices/{id_choice}/answers")
     public Optional<Answer> create(@PathVariable Integer id_question, @PathVariable Integer id_choice) {
-        return answerService.add(id_question, id_choice);
+        Question question = questionService.findById(id_question).orElseThrow(() -> new QuestionException(id_question));
+
+        List<Choice> listChoice = question.getChoices();
+        for (Choice choice : listChoice) {
+            if (choice.getId() == id_choice) {
+                return answerService.add(id_question, id_choice);
+            }
+        }
+
+        throw new ChoiceException(id_choice);
     }
+
+    @DeleteMapping("/questions/{id_question}/choices/{id_choice}/answers/{id_answer}")
+    public ResponseEntity<?> deleteById(@PathVariable Integer id_question, @PathVariable Integer id_choice, @PathVariable Integer id_answer) {
+
+        Question question = questionService.findById(id_question).orElseThrow(() -> new QuestionException(id_question));
+
+        return this.answerService.deleteById(id_answer)
+                .map(answer_ -> ResponseEntity.ok().build()).orElseThrow(() -> new AnswerException(id_answer));
+        /*
+        Question question = questionService.findById(id_question).orElseThrow(() -> new QuestionException(id_question));
+        List<Choice> choices = question.getChoices();
+        for (Choice choice : choices) {
+            if (choice.getId() == id_choice) {
+                List<Answer> answers = choice.getAnswers();
+                for (Answer answer : answers) {
+                    if (answer.getId() == id_answer) {
+
+                   }
+                }
+            }
+
+        }
+
+        return null;
+        */
+    }
+
 }

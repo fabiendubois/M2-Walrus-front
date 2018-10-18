@@ -16,14 +16,8 @@ public class Answer {
     @JoinColumn(name = "id_choice")
     private Choice choice;
 
-    /*
-    public Answer(Choice choice) {
-        this.choice = choice;
-    }*/
-
     public Answer() {
     }
-
 
     public Integer getId() {
         return id;

@@ -28,11 +28,18 @@ public class AnswerService {
     }
 
     public Optional<Answer> add(Integer id_question, Integer id_choice) {
-
         return choiceRepository.findById(id_choice).map(choice -> {
             Answer answer = new Answer();
             answer.setChoice(choice);
             return answerRepository.save(answer);
         });
+    }
+
+    public Optional<Answer> deleteById(Integer id) {
+        return answerRepository.findById(id)
+                .map(answer -> {
+                    answerRepository.delete(answer);
+                    return answer;
+                });
     }
 }

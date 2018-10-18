@@ -1,7 +1,9 @@
 package com.example.walrus.controller;
 
 import com.example.walrus.entity.Choice;
+import com.example.walrus.entity.Question;
 import com.example.walrus.exception.ChoiceException;
+import com.example.walrus.exception.QuestionException;
 import com.example.walrus.service.ChoiceService;
 import com.example.walrus.service.QuestionService;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +18,11 @@ import java.util.Optional;
 public class ChoiceController {
 
     private ChoiceService choiceService;
+    private QuestionService questionService;
 
     public ChoiceController(ChoiceService choiceService, QuestionService questionService) {
         this.choiceService = choiceService;
+        this.questionService = questionService;
     }
 
     @GetMapping("/choices")
@@ -37,6 +41,10 @@ public class ChoiceController {
 
     @PostMapping("/questions/{id}/choices")
     public Optional<Choice> create(@PathVariable Integer id, @Valid @RequestBody Choice choice) {
+        Optional<Question> question = questionService.findById(id);
+        if(!question.isPresent()) {
+            throw new QuestionException(id);
+        }
         return choiceService.add(id, choice);
     }
 
