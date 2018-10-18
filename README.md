@@ -1,4 +1,6 @@
 # Walrus
+[![Build Status](https://travis-ci.com/fabiendubois/Walrus.svg?branch=develop)](https://travis-ci.com/fabiendubois/Walrus)  
+
 Application de questions / réponses.
 
 ## API

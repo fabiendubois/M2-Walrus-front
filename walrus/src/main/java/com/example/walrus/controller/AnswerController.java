@@ -50,6 +50,7 @@ public class AnswerController {
 
         return this.answerService.deleteById(id_answer)
                 .map(answer_ -> ResponseEntity.ok().build()).orElseThrow(() -> new AnswerException(id_answer));
+
         /*
         Question question = questionService.findById(id_question).orElseThrow(() -> new QuestionException(id_question));
         List<Choice> choices = question.getChoices();

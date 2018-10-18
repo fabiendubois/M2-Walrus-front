@@ -25,11 +25,14 @@ public class ChoiceController {
         this.questionService = questionService;
     }
 
+    /*
     @GetMapping("/choices")
     public List<Choice> findAll() {
         return choiceService.findAll();
     }
+    */
 
+    /*
     @GetMapping("/choices/{id}")
     public Optional<Choice> findById(@PathVariable Integer id) {
         Optional<Choice> choice = choiceService.findById(id);
@@ -38,19 +41,19 @@ public class ChoiceController {
         }
         return  choice;
     }
+    */
 
-    @PostMapping("/questions/{id}/choices")
-    public Optional<Choice> create(@PathVariable Integer id, @Valid @RequestBody Choice choice) {
-        Optional<Question> question = questionService.findById(id);
-        if(!question.isPresent()) {
-            throw new QuestionException(id);
-        }
-        return choiceService.add(id, choice);
+    @PostMapping("/questions/{id_question}/choices")
+    public Optional<Choice> create(@PathVariable Integer id_question, @Valid @RequestBody Choice choice) {
+        Question question = questionService.findById(id_question).orElseThrow(() -> new QuestionException(id_question));
+        return choiceService.add(id_question, choice);
     }
 
-    @DeleteMapping("/choices/{id}")
-    public ResponseEntity<?>  deleteById(@PathVariable Integer id_choice) {
+    @DeleteMapping("/questions/{id_question}/choices/{id_choice}")
+    public ResponseEntity<?>  deleteById(@PathVariable Integer id_question, @PathVariable Integer id_choice) {
+        Question question = questionService.findById(id_question).orElseThrow(() -> new QuestionException(id_question));
+
         return this.choiceService.deleteById(id_choice)
-                .map(question -> ResponseEntity.ok().build()).orElseThrow(() -> new ChoiceException(id_choice));
+                .map(_question -> ResponseEntity.ok().build()).orElseThrow(() -> new ChoiceException(id_choice));
     }
 }
