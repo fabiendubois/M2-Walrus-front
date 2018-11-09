@@ -1,5 +1,7 @@
 package com.example.walrus.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -20,6 +22,7 @@ public class Quiz {
     @Column(name = "nb_users")
     private Integer nb_users;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
     private List<Question> questions;
 

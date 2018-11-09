@@ -20,6 +20,7 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
+    /*
     @GetMapping("/questions")
     public List<Question> findAll() {
         return questionService.findAll();
@@ -45,4 +46,6 @@ public class QuestionController {
         return this.questionService.deleteById(id)
                 .map(question -> ResponseEntity.ok().build()).orElseThrow(() -> new QuestionException(id));
     }
+    */
+
 }

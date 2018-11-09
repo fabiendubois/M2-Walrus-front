@@ -1,4 +1,7 @@
 package com.example.walrus.repository;
 
-public interface QuizRepository {
+import com.example.walrus.entity.Quiz;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface QuizRepository extends JpaRepository<Quiz, Integer> {
 }

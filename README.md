@@ -4,12 +4,12 @@
 Application de questions / réponses.
 
 ## API
-GET `/quiz/:id` -> récupérer un quiz
-PUT `/quiz/:id` -> modifier un quiz
-POST `/quiz/:id/_launch` -> lancer un quiz (incrémenter nb utilisateur)
-POST `/quiz/:id/users` -> ajouter un utilisateur à un quiz
-GET `/quiz/:id/questions` -> récupérer les questions et les réponses associées
-POST `/choices/:id/answers` -> répondre à une question
+- [x] GET `/quiz/:id` -> récupérer un quiz
+- [ ] PUT `/quiz/:id` -> modifier un quiz
+- [ ] POST `/quiz/:id/_launch` -> lancer un quiz (incrémenter nb utilisateur)
+- [ ] POST `/quiz/:id/users` -> ajouter un utilisateur à un quiz
+- [ ] GET `/quiz/:id/questions` -> récupérer les questions et les réponses associées
+- [ ] POST `/choices/:id/answers` -> répondre à une question
 
 ## Docker
 Mise en place du Docker MariaDB
