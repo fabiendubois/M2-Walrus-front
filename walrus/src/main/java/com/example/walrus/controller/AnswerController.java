@@ -23,7 +23,7 @@ public class AnswerController {
     }
 
     @PostMapping("/choices/{id_choice}/answers")
-    public Optional<Answer> create(@PathVariable Integer id_question, @PathVariable Integer id_choice) {
-                return null;
+    public Optional<Answer> create(@PathVariable Integer id_choice, @RequestBody Answer answerRequest) throws Exception {
+        return this.answerService.add(id_choice, answerRequest);
     }
 }

@@ -12,6 +12,9 @@ public class Answer {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
+    @Column(name = "text")
+    private String text;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_choice")
@@ -26,6 +29,14 @@ public class Answer {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public Choice getChoice() {

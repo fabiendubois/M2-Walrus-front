@@ -2,10 +2,9 @@ package com.example.walrus.controller;
 
 import com.example.walrus.entity.Quiz;
 import com.example.walrus.service.QuizService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController()
@@ -21,8 +20,13 @@ public class QuizController {
     @GetMapping("/quiz/{id}")
     public Optional<Quiz> findById(@PathVariable Integer id) {
         Optional<Quiz> quiz = quizService.findById(id);
-
         return quiz;
+    }
+
+    @PutMapping("/quiz/{id}")
+    public void updateById(@PathVariable Integer id, @Valid @RequestBody Quiz quizRequest) {
+
+        // TODO : à compléter
     }
 
 }

@@ -27,9 +27,14 @@ public class AnswerService {
         return answerRepository.findById(id);
     }
 
-    public Optional<Answer> add(Integer id_question, Integer id_choice) {
+    /**
+     * Ajouter une réponse
+     * @param id_choice id_choice
+     * @param answer Objet answer
+     * @return Answer
+     */
+    public Optional<Answer> add(Integer id_choice, Answer answer) {
         return choiceRepository.findById(id_choice).map(choice -> {
-            Answer answer = new Answer();
             answer.setChoice(choice);
             return answerRepository.save(answer);
         });
