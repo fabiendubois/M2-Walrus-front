@@ -1,7 +1,9 @@
 package com.example.walrus.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
@@ -16,8 +18,17 @@ public class Question {
     @Column(name = "name")
     private String name;
 
+    @NotNull
+    @Column(name = "started")
+    private Boolean started;
+
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     private List<Choice> choices;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "id_quiz")
+    private Quiz quiz;
 
     public Integer getId() {
         return id;
@@ -35,12 +46,28 @@ public class Question {
         this.name = name;
     }
 
+    public Boolean getStarted() {
+        return started;
+    }
+
+    public void setStarted(Boolean started) {
+        this.started = started;
+    }
+
     public List<Choice> getChoices() {
         return choices;
     }
 
     public void setChoices(List<Choice> choices) {
         this.choices = choices;
+    }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
     }
 }
 

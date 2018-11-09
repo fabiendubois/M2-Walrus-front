@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "choice")
 public class Choice {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
@@ -17,13 +18,13 @@ public class Choice {
     @Column(name = "name")
     private String name;
 
+    @OneToMany(mappedBy = "choice", cascade = CascadeType.ALL)
+    private List<Answer> answers;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_question")
     private Question question;
-
-    @OneToMany(mappedBy = "choice", cascade = CascadeType.ALL)
-    private List<Answer> answers;
 
     public Integer getId() {
         return id;

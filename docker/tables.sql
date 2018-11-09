@@ -14,8 +14,8 @@ CREATE TABLE users (
     -- OTHER --
     email VARCHAR(250),
     -- FOREIGN KEY --
-    id_choice int(11) NOT NULL,
-    FOREIGN KEY (id_choice) REFERENCES choice(id)
+    id_quiz int(11) NOT NULL,
+    FOREIGN KEY (id_quiz) REFERENCES quiz(id)
 );
 
 DROP TABLE IF EXISTS question;
@@ -24,6 +24,7 @@ CREATE TABLE question (
     id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     -- OTHER --
     name VARCHAR(250) NOT NULL,
+    started BOOLEAN NOT NULL DEFAULT FALSE,
     -- FOREIGN KEY --
     id_quiz int(11) NOT NULL,
     FOREIGN KEY (id_quiz) REFERENCES quiz(id)
@@ -44,6 +45,8 @@ DROP TABLE IF EXISTS answer;
 CREATE TABLE answer (
     -- PRIMARY KEY --
     id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -- OTHER ---
+    text VARCHAR(250) NOT NULL,
     -- FOREIGN KEY --
     id_choice int(11) NOT NULL,
     FOREIGN KEY (id_choice) REFERENCES choice(id)
