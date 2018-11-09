@@ -1,15 +1,40 @@
+DROP TABLE IF EXISTS quiz;
+CREATE TABLE quiz (
+    -- PRIMARY KEY --
+    id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -- OTHER --
+    started BOOLEAN NOT NULL DEFAULT FALSE,
+    nb_users int(11) NOT NULL DEFAULT 0
+);
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+    -- PRIMARY KEY --
+    id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -- OTHER --
+    email VARCHAR(250),
+    -- FOREIGN KEY --
+    id_choice int(11) NOT NULL,
+    FOREIGN KEY (id_choice) REFERENCES choice(id)
+);
+
 DROP TABLE IF EXISTS question;
 CREATE TABLE question (
     -- PRIMARY KEY --
     id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     -- OTHER --
-    name VARCHAR(250) NOT NULL
+    name VARCHAR(250) NOT NULL,
+    -- FOREIGN KEY --
+    id_quiz int(11) NOT NULL,
+    FOREIGN KEY (id_quiz) REFERENCES quiz(id)
 );
 
 DROP TABLE IF EXISTS choice;
 CREATE TABLE choice (
     -- PRIMARY KEY --
     id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    -- OTHER --
+    name VARCHAR(250) NOT NULL,
     -- FOREIGN KEY --
     id_question int(11) NOT NULL,
     FOREIGN KEY (id_question) REFERENCES question(id)
@@ -23,6 +48,3 @@ CREATE TABLE answer (
     id_choice int(11) NOT NULL,
     FOREIGN KEY (id_choice) REFERENCES choice(id)
 );
-
-
-
