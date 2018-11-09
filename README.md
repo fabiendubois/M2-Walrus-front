@@ -4,30 +4,12 @@
 Application de questions / réponses.
 
 ## API
-
-### Question :
-- [x] Ajouter une question.
-- [x] Supprimer une question.
-- [ ] Modifier une question.
-- [x] Récupérer une question.
-- [x] Récupérer toute les questions.
-
-### Choix :
-- [x] Ajouter un choix.
-- [x] Supprimer un choix.
-- [ ] Modifier un choix.
-- [x] Récupérer un choix.
-- [x] Récupérer tout les choix.
-- [ ] Récupérer tout les choix d'une question.
-
-### Réponse :
-- [x] Ajouter une réponse.
-- [ ] Supprimer une réponse.
-- [ ] Modifier une réponse.
-- [x] Récupérer une réponse.
-- [x] Récupérer toute les réponses.
-- [ ] Récupérer toute les réponses d'une question.
-- [ ] Récupérer toute les réponses d'un choix.
+GET `/quiz/:id` -> récupérer un quiz
+PUT `/quiz/:id` -> modifier un quiz
+POST `/quiz/:id/_launch` -> lancer un quiz (incrémenter nb utilisateur)
+POST `/quiz/:id/users` -> ajouter un utilisateur à un quiz
+GET `/quiz/:id/questions` -> récupérer les questions et les réponses associées
+POST `/choices/:id/answers` -> répondre à une question
 
 ## Docker
 Mise en place du Docker MariaDB

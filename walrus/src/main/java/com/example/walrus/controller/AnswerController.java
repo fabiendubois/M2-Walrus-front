@@ -42,32 +42,4 @@ public class AnswerController {
 
         throw new ChoiceException(id_choice);
     }
-
-    @DeleteMapping("/questions/{id_question}/choices/{id_choice}/answers/{id_answer}")
-    public ResponseEntity<?> deleteById(@PathVariable Integer id_question, @PathVariable Integer id_choice, @PathVariable Integer id_answer) {
-
-        Question question = questionService.findById(id_question).orElseThrow(() -> new QuestionException(id_question));
-
-        return this.answerService.deleteById(id_answer)
-                .map(answer_ -> ResponseEntity.ok().build()).orElseThrow(() -> new AnswerException(id_answer));
-
-        /*
-        Question question = questionService.findById(id_question).orElseThrow(() -> new QuestionException(id_question));
-        List<Choice> choices = question.getChoices();
-        for (Choice choice : choices) {
-            if (choice.getId() == id_choice) {
-                List<Answer> answers = choice.getAnswers();
-                for (Answer answer : answers) {
-                    if (answer.getId() == id_answer) {
-
-                   }
-                }
-            }
-
-        }
-
-        return null;
-        */
-    }
-
 }
