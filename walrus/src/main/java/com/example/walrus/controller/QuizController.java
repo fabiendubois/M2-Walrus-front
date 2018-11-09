@@ -25,8 +25,13 @@ public class QuizController {
 
     @PutMapping("/quiz/{id}")
     public void updateById(@PathVariable Integer id, @Valid @RequestBody Quiz quizRequest) {
-
         // TODO : à compléter
     }
 
+    @PostMapping("/quiz/{id}/_join")
+    public void join(@PathVariable Integer id) throws Exception {
+        Optional<Quiz> quiz = quizService.findById(id);
+
+        quiz.orElseThrow(() -> new Exception()).getId();
+    }
 }

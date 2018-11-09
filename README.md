@@ -1,7 +1,7 @@
 # Walrus
 [![Build Status](https://travis-ci.com/fabiendubois/Walrus.svg?branch=develop)](https://travis-ci.com/fabiendubois/Walrus)  
 
-Application de questions / réponses.
+Spécifications de l'application : https://github.com/poutsjr/mentimaster-doc/blob/master/src/main/asciidoc/index.adoc
 
 ## API
 - [x] GET `/quiz/:id` -> récupérer un quiz
