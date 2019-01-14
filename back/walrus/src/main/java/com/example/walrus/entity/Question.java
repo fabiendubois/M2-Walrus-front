@@ -18,6 +18,10 @@ public class Question {
     @Column(name = "content")
     private String content;
 
+    @NotNull
+    @Column(name = "started")
+    private Boolean started;
+
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
     private List<Choice> choices;
 
@@ -42,6 +46,14 @@ public class Question {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public boolean getStarted() {
+        return started;
+    }
+
+    public void setStarted(Boolean started) {
+        this.started = started;
     }
 
     public List<Choice> getChoices() {

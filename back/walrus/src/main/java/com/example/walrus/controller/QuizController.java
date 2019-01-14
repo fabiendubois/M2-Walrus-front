@@ -46,6 +46,12 @@ public class QuizController {
     */
 
 
+    @PostMapping("/quiz/{id}/_start")
+    public void join(@PathVariable Integer id) throws Exception {
+        this.quizService.start(id);
+    }
+
+
 
     /*
     @PostMapping("/quiz/{id}/_join")

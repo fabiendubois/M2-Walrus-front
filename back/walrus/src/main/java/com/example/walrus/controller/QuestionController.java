@@ -30,9 +30,10 @@ public class QuestionController {
             .map(Quiz::getQuestions) .orElseThrow(() -> new ResourceNotFoundException("Quiz not found with id " + id));
     }
 
-    @PostMapping("/quiz/{id}/questions")
-    public ResponseEntity<Question> create(@PathVariable Integer id, @Valid @RequestBody Question questionRequest) {
-        System.out.println("QUESTION BODY " + questionRequest.getContent());
-        return ResponseEntity.status(HttpStatus.CREATED).body(this.questionService.create(id, questionRequest));
-    }
+
+    /*
+    @GetMapping("/quiz/{id}/questions/id") {
+    }*/
+
+
 }

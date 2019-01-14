@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { CreateComponentDialogComponent } from '.././dialogs/create-component-dialog/create-component-dialog.component';
-import { JoinComponentDialogComponent } from '.././dialogs/join-component-dialog/join-component-dialog.component';
  
 @Component({
   selector: 'app-home',
@@ -19,13 +17,11 @@ export class HomeComponent implements OnInit {
   joinDialog() {}
 
   createDialog() {
-    const dialogRef = this.dialog.open(CreateComponentDialogComponent, {
-      data: { application: "" }
-    });
+   
+  }
 
-    dialogRef.afterClosed().subscribe(result => {
-      
-    });
+  start() {
+    
   }
   
 }

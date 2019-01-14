@@ -6,10 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // COMPONENTS
-import { AdminQuizComponent } from './admin-quiz/admin-quiz.component';
 import { HomeComponent } from './home/home.component';
-import { CreateComponentDialogComponent } from './dialogs/create-component-dialog/create-component-dialog.component';
-import { JoinComponentDialogComponent } from './dialogs/join-component-dialog/join-component-dialog.component';
 
 // Form
 import { ReactiveFormsModule } from '@angular/forms';
@@ -26,17 +23,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 
 // HTTP
 import { HttpClientModule } from '@angular/common/http';
-import { AddDialogComponent } from './admin-quiz/dialogs/add-dialog/add-dialog.component';
-
+import { DirectorComponent } from './director/director.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreateComponentDialogComponent,
-    JoinComponentDialogComponent,
-    AdminQuizComponent,
     HomeComponent,
-    AddDialogComponent,
+    DirectorComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,8 +51,6 @@ import { AddDialogComponent } from './admin-quiz/dialogs/add-dialog/add-dialog.c
 
   ],
   entryComponents: [
-    CreateComponentDialogComponent,
-    JoinComponentDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
