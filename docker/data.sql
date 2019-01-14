@@ -1,6 +1,6 @@
-INSERT INTO quiz (started, nb_users) 
+INSERT INTO quiz (started, name, nb_users) 
 VALUES 
-(false, 0);
+(false, 'Quiz du futur', 1);
 
 INSERT INTO question (name, started, id_quiz) 
 VALUES 
