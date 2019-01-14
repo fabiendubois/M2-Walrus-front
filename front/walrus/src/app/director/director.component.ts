@@ -13,9 +13,13 @@ export class DirectorComponent implements OnInit {
   constructor(private quizService: QuizService) { }
 
   ngOnInit() {
+    this.quizService.findById(1).subscribe(data => {
+      this.started = data.started;
+    });
   }
 
   start() {
+    
     this.quizService.start(1).subscribe(data => {
       this.started = true;
     });
