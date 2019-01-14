@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>
+  Create a Quiz
+</h1>
+
+<form [formGroup]="quizForm" (ngSubmit)="create()">
+
+  <div mat-dialog-content class="container">
+    <mat-form-field>
+      <input matInput cdkFocusInitial class="input" type="text" placeholder="Name" formControlName="name" required>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button color="accent" [mat-dialog-close]>Cancel</button>
+    <button mat-button color="primary" [disabled]="!quizForm.valid" >Add</button>
+  </div>
+</form>
