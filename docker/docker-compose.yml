@@ -1,6 +1,11 @@
 mariadb-walrius:
   image: mariadb
+  command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+  volumes:
+    - ./init.sql:/docker-entrypoint-initdb.d/init.sql
   environment:
     - MYSQL_ROOT_PASSWORD=password
+    - MYSQL_DATABASE=walrus
+    - LANG=C.UTF-8
   ports:
     - 3306:3306
