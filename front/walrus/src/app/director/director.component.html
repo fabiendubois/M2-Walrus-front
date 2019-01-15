@@ -21,11 +21,11 @@
 
             <div *ngIf="question.id === 5" >
                 <h3 >
-                    Mot le plus utilisé : {{best_word}}
+                    Mot le plus utilisé : B R A V O
                   </h3>
             </div>
 
-          <button mat-fab color="primary" style="width: 80px; height: 80px;" (click)="next()">
+          <button *ngIf="question.id !== 5" mat-fab color="primary" style="width: 80px; height: 80px;" (click)="next()">
               <mat-icon aria-label="Start quiz">skip_next</mat-icon>
           </button>
       </div>

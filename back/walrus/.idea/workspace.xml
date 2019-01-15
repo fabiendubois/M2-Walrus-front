@@ -3,13 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8d880081-8823-4aa7-83b9-31b485009920" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/walrus/controller/QuestionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/walrus/controller/QuestionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/walrus/controller/QuizController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/walrus/controller/QuizController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/walrus/entity/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/walrus/entity/Answer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/walrus/entity/Choice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/walrus/entity/Choice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/walrus/service/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/walrus/service/AnswerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/walrus/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/walrus/service/QuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/walrus/service/QuizService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/walrus/service/QuizService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/walrus/src/app/director/director.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/walrus/src/app/director/director.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../front/walrus/src/app/director/director.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../front/walrus/src/app/director/director.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/walrus/entity/Answer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            <state relative-caret-position="30">
+              <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -233,12 +228,12 @@
       <option name="presentableId" value="Default" />
       <updated>1547493444660</updated>
       <workItem from="1547493445965" duration="400000" />
-      <workItem from="1547493885385" duration="3157000" />
+      <workItem from="1547493885385" duration="3359000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3557000" />
+    <option name="totallyTimeSpent" value="3759000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
@@ -255,7 +250,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.32970297" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3148515" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5940594" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -343,8 +338,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/walrus/entity/Answer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="20" column="26" lean-forward="true" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="30">
+          <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
         </state>
       </provider>
     </entry>

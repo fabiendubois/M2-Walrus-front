@@ -14,7 +14,7 @@ export class UserComponent implements OnInit {
   question_encour = 1;
   voted = false;
 
-  reponse5 = "bite";
+  reponse5 = "";
 
   constructor(
     private quizService: QuizService

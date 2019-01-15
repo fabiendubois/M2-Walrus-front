@@ -34,7 +34,7 @@ export class DirectorComponent implements OnInit {
       // START FIRST QUESTION
       this.startQuestion(1);
       // Récupérer le quiz avec les questions et les choix
-      this.getAllQuestions();
+      this.looping(0);
     });
   }
 
