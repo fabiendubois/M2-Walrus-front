@@ -19,4 +19,4 @@ Mise en place du Docker MariaDB
 - Connexion au container : `docker exec -it <ID CONTAINER> bash`.
 - *Dans le container :* `mysql -p` pour se connecter à la base.
 
-Afin de faciliter l'utilisation de la ,base de données vous pouvez utiliser SQL Electron : https://sqlectron.github.io
+Afin de faciliter l'utilisation de la base de données vous pouvez utiliser SQL Electron : https://sqlectron.github.io
