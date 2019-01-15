@@ -7,3 +7,8 @@ addons:
   mariadb: '10.0'
 before_install:
 - mysql -e 'CREATE DATABASE walrus;'
+deploy:
+  provider: heroku
+  api_key:
+    secure: fceb5c0b-4a14-4c12-b586-ef1679c3a5d0
+  app: walrus-jee
