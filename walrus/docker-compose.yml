@@ -1,15 +1,10 @@
-version: '3.3'
+version: '2.2'
  
 services:
   angular:
     build: .
     restart: always
     volumes:
-     - ./dist/erf:/usr/share/nginx/html:ro
+     - ./dist/walrus:/usr/share/nginx/html:ro
     ports:
      - 80:80
- 
-networks:
-  default:
-    external:
-      name: erf
