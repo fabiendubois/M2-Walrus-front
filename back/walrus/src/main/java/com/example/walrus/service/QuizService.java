@@ -34,4 +34,10 @@ public class QuizService {
         quiz.setStarted(true);
         quizRepository.save(quiz);
     }
+
+    public void complete(Integer id) {
+        Quiz quiz = this.findById(id).orElseThrow(() -> new ResourceNotFoundException("Quiz not found with id " + id));
+        quiz.setStarted(false);
+        quizRepository.save(quiz);
+    }
 }

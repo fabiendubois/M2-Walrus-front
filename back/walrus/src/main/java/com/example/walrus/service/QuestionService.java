@@ -30,19 +30,15 @@ public class QuestionService {
         return questionRepository.findById(id_question);
     }
 
-    public Question create(Integer id, Question question) {
-
-        Quiz quiz = this.quizService.findById(id).orElseThrow(() -> new ResourceNotFoundException("Quiz not found with id " + id));
-        question.setQuiz(quiz);
-
-        return questionRepository.save(question);
+    public void start(Integer idQuestion) {
+        Question question = this.findById(idQuestion).orElseThrow(() -> new ResourceNotFoundException("Question not found with id " + idQuestion));
+        question.setStarted(true);
+        questionRepository.save(question);
     }
 
-    public Optional<?> deleteById(Integer id_question) {
-        return questionRepository.findById(id_question)
-                .map(question -> {
-                    questionRepository.delete(question);
-                    return question;
-                });
+    public void complete(Integer idQuestion) {
+        Question question = this.findById(idQuestion).orElseThrow(() -> new ResourceNotFoundException("Question not found with id " + idQuestion));
+        question.setStarted(false);
+        questionRepository.save(question);
     }
 }

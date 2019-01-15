@@ -38,20 +38,16 @@ public class QuizController {
         return ResponseEntity.status(HttpStatus.CREATED).body(this.quizService.create(quizRequest));
     }
 
-    /*
-    @PutMapping("/quiz/{id}")
-    public void updateById(@PathVariable Integer id, @Valid @RequestBody Quiz quizRequest) {
-        // TODO : à compléter
-    }
-    */
-
 
     @PostMapping("/quiz/{id}/_start")
-    public void join(@PathVariable Integer id) throws Exception {
+    public void start(@PathVariable Integer id) throws Exception {
         this.quizService.start(id);
     }
 
-
+    @PostMapping("/quiz/{id}/_complete")
+    public void complete(@PathVariable Integer id) throws Exception {
+        this.quizService.complete(id);
+    }
 
     /*
     @PostMapping("/quiz/{id}/_join")

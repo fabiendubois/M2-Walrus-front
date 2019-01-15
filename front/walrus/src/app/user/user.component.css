@@ -12,15 +12,24 @@
   /* If you want the content centered horizontally and vertically */
   .centered {
     position: absolute;
-    top: 50%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
   }
-  
+ 
 
+  .box {
+    margin-top: 5%;
+    justify-content: center;
+    text-align: center;
 
+  }
 
+  .container_choices {
+    display: flex;
+    justify-content: center;
+  }
 
   /* LOADER */
   .lds-ellipsis {

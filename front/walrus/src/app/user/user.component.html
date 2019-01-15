@@ -1,8 +1,40 @@
 <div class="split">
+
     <div *ngIf="started === false">
-    <div class="centered">
-      <h1 style="color:white;">Quickly available</h1>
-      <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        <div class="centered">
+            <h1 style="color:white;">Quickly available</h1>
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
     </div>
+
+
+    <div class="box" *ngFor="let question of quiz">
+        <div style="color:white;" *ngIf="question.started === true">
+            <h2 style="text-align: center;">{{question.content | json}}</h2>
+            <div class="container_choices" *ngFor="let choice of question.choices">
+                <button mat-raised-button matBadge="{{choice.answers.length}}" matBadgePosition="after" matBadgeColor="primary"
+                    style="background-color: #FFC107; margin:10px;" *ngIf="question.started === true && question.id !== 5 "
+                    (click)="vote(choice.id, question.id)" [disabled]=voted>{{choice.content}}</button>
+            </div>
+        </div>
     </div>
-  </div>
+
+    <div class="box" *ngIf="question_encour === 5" style="background-color:white;">
+        <mat-form-field>
+            <input matInput placeholder="Votre réponse" [(ngModel)]="reponse5">
+        </mat-form-field>
+        <button mat-raised-button (click)="vote(13, question_encour)" [disabled]=voted>Valider</button>
+
+        
+        <div>
+
+        </div>
+    </div>
+
+
+</div>

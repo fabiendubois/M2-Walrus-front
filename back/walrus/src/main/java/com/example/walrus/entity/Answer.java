@@ -37,7 +37,7 @@ public class Answer {
         return content;
     }
 
-    public void setContent(String text) {
+    public void setContent(String content) {
         this.content = content;
     }
 

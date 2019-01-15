@@ -35,13 +35,4 @@ public class AnswerService {
             return answerRepository.save(answer);
         });
     }
-
-
-    public Optional<Answer> deleteById(Integer id) {
-        return answerRepository.findById(id)
-                .map(answer -> {
-                    answerRepository.delete(answer);
-                    return answer;
-                });
-    }
 }

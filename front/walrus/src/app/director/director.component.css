@@ -18,3 +18,13 @@
     text-align: center;
   }
   
+  .box {
+    margin-top: 5%;
+    justify-content: center;
+  }
+
+  .container_choices {
+    display: flex;
+    justify-content: center;
+    
+  }

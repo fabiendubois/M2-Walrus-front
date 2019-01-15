@@ -24,7 +24,7 @@ CREATE TABLE question (
     -- PRIMARY KEY --
     id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     -- OTHER --
-    name VARCHAR(250) NOT NULL,
+    content VARCHAR(250) NOT NULL,
     started BOOLEAN NOT NULL DEFAULT FALSE,
     -- FOREIGN KEY --
     id_quiz int(11) NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE choice (
     -- PRIMARY KEY --
     id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     -- OTHER --
-    name VARCHAR(250) NOT NULL,
+    content VARCHAR(250) NOT NULL,
     -- FOREIGN KEY --
     id_question int(11) NOT NULL,
     FOREIGN KEY (id_question) REFERENCES question(id)
@@ -47,7 +47,7 @@ CREATE TABLE answer (
     -- PRIMARY KEY --
     id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     -- OTHER ---
-    text VARCHAR(250) NOT NULL,
+    content VARCHAR(250) NOT NULL,
     -- FOREIGN KEY --
     id_choice int(11) NOT NULL,
     FOREIGN KEY (id_choice) REFERENCES choice(id)

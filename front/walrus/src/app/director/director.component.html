@@ -1,14 +1,37 @@
 <div class="split">
-  <div class="centered">
-    <div *ngIf="started === false">
+
+    <!-- Début -->
+    <div class="centered" *ngIf="started === false">
       <h1 style="color:black;">Start Quiz</h1>
-      <button mat-fab color="primary" style="width: 80px; height: 80px;" (click)="start()">
+      <button mat-fab color="primary" style="width: 80px; height: 80px;" (click)="startQuiz()">
         <mat-icon aria-label="Start quiz">play_circle_filled</mat-icon>
       </button>
     </div>
+
+
+  <div class="box" *ngFor="let question of quiz">
+    <div class="question" *ngIf="question.started === true">
+      <h2 style="text-align: center;">{{question.content | json}}</h2>
+      <div class="container_choices"> 
+
+          <div class="container_choices" *ngFor="let choice of question.choices">
+              <button mat-raised-button color="primary" matBadge="{{choice.answers.length}}" matBadgePosition="after" matBadgeColor="primary" 
+              style="margin:10px;" *ngIf="question.started === true && question.id !== 5">{{choice.content}}</button>
+            </div>
+
+            <div *ngIf="question.id === 5" >
+                <h3 >
+                    Mot le plus utilisé : {{best_word}}
+                  </h3>
+            </div>
+
+          <button mat-fab color="primary" style="width: 80px; height: 80px;" (click)="next()">
+              <mat-icon aria-label="Start quiz">skip_next</mat-icon>
+          </button>
+      </div>
+    </div>
   </div>
-</div>
-
-<div class="results">
 
 </div>
+
+

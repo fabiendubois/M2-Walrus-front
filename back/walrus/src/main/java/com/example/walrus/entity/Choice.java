@@ -18,7 +18,6 @@ public class Choice {
     @Column(name = "content")
     private String content;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "choice", cascade = CascadeType.ALL)
     private List<Answer> answers;
 

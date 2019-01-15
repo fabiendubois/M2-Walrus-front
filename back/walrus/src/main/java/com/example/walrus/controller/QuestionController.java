@@ -31,9 +31,13 @@ public class QuestionController {
     }
 
 
-    /*
-    @GetMapping("/quiz/{id}/questions/id") {
-    }*/
+    @PostMapping("/quiz/{idQuiz}/questions/{idQuestion}/_start")
+    public void start(@PathVariable Integer idQuiz, @PathVariable Integer idQuestion) {
+        this.questionService.start(idQuestion);
+    }
 
-
+    @PostMapping("/quiz/{idQuiz}/questions/{idQuestion}/_complete")
+    public void complete(@PathVariable Integer idQuiz, @PathVariable Integer idQuestion) {
+        this.questionService.complete(idQuestion);
+    }
 }
